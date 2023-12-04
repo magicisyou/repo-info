@@ -9,10 +9,9 @@ use term_size::dimensions;
 struct RepositoryInfo {
     name: String,
     full_name: String,
-    description: String,
+    description: Option<String>,
     language: Option<String>,
     stargazers_count: u32,
-    watchers_count: u32,
     size: u32,
     forks: u32,
     open_issues: u32,
@@ -90,13 +89,16 @@ impl fmt::Display for RepositoryInfo {
             Some(lang) => lang.into(),
             None => "".to_string(),
         };
+        let description = match &self.description {
+            Some(desc) => desc.into(),
+            None => "".to_string(),
+        };
         writeln!(f, "{:term_width$}", self.name.red().on_white())?;
         writeln!(f, "Full Name: {}", self.full_name.red())?;
-        writeln!(f, "Description: {}", self.description.red())?;
+        writeln!(f, "Description: {}", description.red())?;
         writeln!(f, "Language: {}", language.red())?;
         writeln!(f, "Default branch: {}", self.default_branch.red())?;
         writeln!(f, "Stars: {}", self.stargazers_count.to_string().red())?;
-        writeln!(f, "Watchers: {}", self.watchers_count.to_string().red())?;
         writeln!(f, "Size: {}", self.size.to_string().red())?;
         writeln!(f, "Forks: {}", self.forks.to_string().red())?;
         writeln!(f, "Open issues: {}", self.open_issues.to_string().red())?;
