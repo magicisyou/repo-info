@@ -1,7 +1,7 @@
 [package]
-name = "repo-lang-stat"
-version = "0.2.0"
-description = "A small cli tool to print the language statistics of a github repo"
+name = "repo-info"
+version = "0.3.0"
+description = "Get the details about a github repository in the terminal"
 authors = ["youaremagic"]
 license = "MIT"
 edition = "2021"
@@ -13,3 +13,6 @@ reqwest = { version = "0.11", features = ["blocking", "json"] }
 clap = { version = "4.0", features = ["derive"] }
 colored = "2.0.0"
 term_size = "0.3.2"
+serde_json = "1.0.96"
+serde = { version = "1.0.163", features = ["derive"] }
+indicatif = "0.17.7"
