@@ -1,0 +1,18 @@
+[package]
+name = "repo-info"
+version = "0.3.1"
+description = "Get the details about a github repository in the terminal"
+authors = ["magicisyou"]
+license = "MIT"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+clap = { version = "4.0", features = ["derive"] }
+colored = "2.0.0"
+term_size = "0.3.2"
+serde_json = "1.0.96"
+serde = { version = "1.0.163", features = ["derive"] }
+indicatif = "0.17.7"
